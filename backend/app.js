@@ -5,6 +5,8 @@ const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const cloudinary = require("cloudinary").v2; // Import Cloudinary
+const path = require("path");
+
 
 // Configure Cloudinary
 cloudinary.config({
@@ -22,6 +24,8 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(bodyParser.json({ limit: '100mb' }));
 app.use(bodyParser.urlencoded({ limit: '100mb', extended: true }));
+app.use("/", express.static(path.join(__dirname, "./uploads")));
+
 
 // Routes
 app.use("/test", (req, res) => {
