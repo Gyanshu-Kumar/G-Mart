@@ -20,11 +20,14 @@ app.use(cors({
   credentials: true
 }));
 
-app.use("/", express.static(path.join(__dirname,"./uploads")));
+app.use("/", express.static(path.join(__dirname, "./uploads")));
+
 app.use("/test", (req, res) => {
   res.send("Hello world!");
 });
-app.use(bodyParser.urlencoded({ limit: '100mb', extended: true }));
+
+app.use(express.urlencoded({ limit: '100mb', extended: true }));
+
 
 
 if(process.env.NODE_ENV !== "PRODUCTION"){
