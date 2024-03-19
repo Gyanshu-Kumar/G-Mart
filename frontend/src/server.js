@@ -1,4 +1,4 @@
-export const server = "https://gyanshu.vercel.app/api/v2";
-export const backend_url = "https://gyanshu.vercel.app/"
+export const server = "https://localhost:3000/api/v2";
+export const backend_url = "https://localhost:3000/"
 
 

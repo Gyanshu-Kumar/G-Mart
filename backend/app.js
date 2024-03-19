@@ -12,7 +12,7 @@ const path = require("path");
 
 // Middleware
 app.use(cors({
-  origin: 'https://g-mart-mu.vercel.app',
+  origin: 'https://localhost:3000',
   credentials: true
 }));
 app.use(express.json());

@@ -35,7 +35,7 @@ router.post("/create-user", async (req, res, next) => {
 
     const activationToken = createActivationToken(user);
 
-    const activationUrl = `https://g-mart-mu.vercel.app/activation/${activationToken}`;
+    const activationUrl = `https://localhost:3000/activation/${activationToken}`;
 
     try {
       await sendMail({
