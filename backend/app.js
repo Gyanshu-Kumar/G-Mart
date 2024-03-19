@@ -5,6 +5,7 @@ const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const cloudinary = require("cloudinary").v2; // Import Cloudinary
+const path = require("path");
 
 // Configure Cloudinary
 cloudinary.config({
@@ -15,12 +16,12 @@ cloudinary.config({
 
 // Middleware
 app.use(cors({
-  origin: 'https://g-mart-23zd.vercel.app/',
+  origin: 'https://g-mart-23zd.vercel.app',
   credentials: true
 }));
 
-app.use("/", express.static("uploads"));
-app.use("/", (req, res) => {
+app.use("/", express.static(path.join(__dirname,"./uploads")));
+app.use("/test", (req, res) => {
   res.send("Hello world!");
 });
 app.use(bodyParser.urlencoded({ limit: '100mb', extended: true }));
