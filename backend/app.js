@@ -4,35 +4,29 @@ const app = express();
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-
-const path = require("path");
+const cloudinary = require("cloudinary").v2; // Import Cloudinary
 
 // Configure Cloudinary
-
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET
+});
 
 // Middleware
 app.use(cors({
-  origin: 'https://localhost:3000',
+  origin: 'http://localhost:3000',
   credentials: true
 }));
 app.use(express.json());
 app.use(cookieParser());
-app.use("/",express.static(path.join(__dirname,"./uploads")));
+app.use(bodyParser.json({ limit: '100mb' }));
+app.use(bodyParser.urlencoded({ limit: '100mb', extended: true }));
+
+// Routes
 app.use("/test", (req, res) => {
   res.send("Hello world!");
 });
-
-
-app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
-
-if (process.env.NODE_ENV !== "PRODUCTION") {
-  require("dotenv").config({
-    path: "config/.env",
-  });
-}
-
-// Routes
-
 // Import routes
 const user = require("./controller/user");
 const shop = require("./controller/shop");
