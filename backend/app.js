@@ -18,9 +18,11 @@ app.use(cors({
   origin: 'http://localhost:3000',
   credentials: true
 }));
-app.use(express.json());
-app.use(cookieParser());
-app.use(bodyParser.json({ limit: '100mb' }));
+
+app.use("/", express.static("uploads"));
+app.use("/", (req, res) => {
+  res.send("Hello world!");
+});
 app.use(bodyParser.urlencoded({ limit: '100mb', extended: true }));
 
 
@@ -31,9 +33,7 @@ if(process.env.NODE_ENV !== "PRODUCTION"){
 }
 
 // Routes
-app.use("/test", (req, res) => {
-  res.send("Hello world!");
-});
+
 // Import routes
 const user = require("./controller/user");
 const shop = require("./controller/shop");
