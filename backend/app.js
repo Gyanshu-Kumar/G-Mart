@@ -15,7 +15,7 @@ cloudinary.config({
 
 // Middleware
 app.use(cors({
-  origin: 'http://localhost:3000https://g-mart-23zd.vercel.app',
+  origin: 'https://g-mart-23zd.vercel.app',
   credentials: true
 }));
 app.use(express.json());
