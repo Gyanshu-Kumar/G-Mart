@@ -4,7 +4,7 @@ const app = express();
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-const cloudinary = require("cloudinary").v2; // Import Cloudinary
+const cloudinary = require('cloudinary');
 const path = require("path");
 
 
