@@ -1,5 +1,5 @@
 import React from "react";
-import background from "./Gmart-logo_3_40.jpg";
+import background from "./Gmart-logo_3_40-removebg-preview.png";
 
 import {
   AiFillFacebook,
