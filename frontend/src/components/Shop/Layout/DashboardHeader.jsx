@@ -5,6 +5,7 @@ import { FiPackage, FiShoppingBag } from "react-icons/fi";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { BiMessageSquareDetail } from "react-icons/bi";
+import background from "./Gmart-logo_3_40.jpg"; // Corrected image import
 
 const DashboardHeader = () => {
   const { seller } = useSelector((state) => state.seller);
@@ -13,8 +14,8 @@ const DashboardHeader = () => {
       <div>
         <Link to="/dashboard">
           <img
-            src="https://shopo.quomodothemes.website/assets/images/logo.svg"
-            alt=""
+            src={background}
+            alt="Gmart Logo" 
           />
         </Link>
       </div>
