@@ -5,7 +5,7 @@ const router = express.Router();
 const Product = require("../model/product");
 const Order = require("../model/order");
 const Shop = require("../model/shop");
-const cloudinary = require('cloudinary');
+const cloudinary = require("cloudinary");
 const ErrorHandler = require("../utils/ErrorHandler");
 
 // create product
@@ -73,7 +73,7 @@ router.get(
   })
 );
 
-// delete product of a shop 
+// delete product of a shop
 router.delete(
   "/delete-shop-product/:id",
   isSeller,
@@ -86,7 +86,7 @@ router.delete(
       }    
 
       for (let i = 0; i < product.images.length; i++) {
-        await cloudinary.v2.uploader.destroy(
+        const result = await cloudinary.v2.uploader.destroy(
           product.images[i].public_id
         );
       }
@@ -102,7 +102,6 @@ router.delete(
     }
   })
 );
-
 
 // get all products
 router.get(
