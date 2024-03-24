@@ -73,7 +73,7 @@ router.get(
   })
 );
 
-// delete product of a shop
+// delete product of a shop 
 router.delete(
   "/delete-shop-product/:id",
   isSeller,
