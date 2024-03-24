@@ -15,8 +15,7 @@ const DashboardHeader = () => {
         <Link to="/dashboard">
           <img
             src={background}
-            alt="Gmart Logo" 
-          />
+            alt="Gmart Logo" />
         </Link>
       </div>
       <div className="flex items-center">
