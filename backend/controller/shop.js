@@ -40,7 +40,6 @@ router.post("/create-shop", catchAsyncErrors(async (req, res, next) => {
     const activationToken = createActivationToken(seller);
 
     const activationUrl = `https://g-mart-23zd.vercel.app/seller/activation/${activationToken}`;
-
     try {
       await sendMail({
         email: seller.email,
